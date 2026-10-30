@@ -1,3 +1,17 @@
+# Pet Clinic CI/CD on AWS EC2 (Bella Solutions for Dr. Shawn)
+
+This repository is the open-source [Spring PetClinic](https://github.com/spring-projects/spring-petclinic)
+(Spring Boot 2.7.3, last release line that runs on Java 11), adapted for a Jenkins CI/CD pipeline:
+
+- `pom.xml`: Java 11, `war` packaging, embedded Tomcat marked `provided`, WAR named `petclinic.war`.
+- `ServletInitializer.java`: lets an external Tomcat start the application.
+- `Jenkinsfile`: Checkout, Build, Test, Package (`mvn package`), Deploy to the local Tomcat 9, Smoke test.
+
+The pipeline runs on Jenkins on an AWS EC2 instance (JDK 11 + Maven + Tomcat 9) and deploys the app to
+port 8090 at `/petclinic/`.
+
+---
+
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/spring-projects/spring-petclinic)
